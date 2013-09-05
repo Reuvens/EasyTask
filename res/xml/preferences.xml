@@ -6,5 +6,5 @@
             android:summary="The default Email address tasks are sent to"
             android:dialogTitle="Email"
             android:dialogMessage="Email address to send tasks to"   
-            android:defaultValue="reuven.sa@gmail.com" />
+            android:defaultValue="" />
 </PreferenceScreen>

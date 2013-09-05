@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -25,6 +26,11 @@ public class AddTaskActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		menu.add("Settings");
 		super.onCreateOptionsMenu(menu);
+        String emailAddress = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("email", "");
+        if (emailAddress.isEmpty()) {
+        	// Pop up a dialog to ask users to enter email address and add it to the email field of the settings.
+        	setEmailDestination();
+        }
 		return true;
 	}
 	
@@ -72,6 +78,44 @@ public class AddTaskActivity extends Activity {
 		taskDetailsContent.setText("");
 	}
 
+	private void setEmailDestination() {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+		// set title
+		alertDialogBuilder.setTitle("Set destination email address");
+
+		// set dialog
+		
+		alertDialogBuilder.setMessage(
+				"Hi There !!! \n" +
+				"  Welcome to EasyTask \n" +
+				"  Send tasks to your email as easy as possible. \n" +
+				"  Please set the email address to send tasks too. \n" +
+				"  * this can always be changed on the settings page. \n" +
+				"Love to hear feedback at: easy.task.app@gmail.com");
+		final EditText input = new EditText(this);
+		alertDialogBuilder.setView(input);
+		alertDialogBuilder
+				.setPositiveButton("Ok", new OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						String value = input.getText().toString().trim();
+						SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+						Editor editor = prefs.edit();
+						editor.putString("email", value);
+						editor.commit();
+						dialog.cancel();
+					}
+				});
+
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
+	}
+	
 	private void showUnimplementedDialog() {
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
