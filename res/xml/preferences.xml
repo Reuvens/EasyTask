@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+     <EditTextPreference
+            android:key="email"
+            android:title="Destination Email"
+            android:summary="The default Email address tasks are sent to"
+            android:dialogTitle="Email"
+            android:dialogMessage="Email address to send tasks to"   
+            android:defaultValue="reuven.sa@gmail.com" />
+</PreferenceScreen>

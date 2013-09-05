@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/abstract_blue_wave_background"
+    tools:context=".AddTaskActivity" >
+
+    <EditText
+        android:id="@+id/task_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="34dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/task_details_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/task_text"
+        android:layout_marginRight="36dp"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/task_details_text"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/task_details_text"
+        android:text="@string/details"
+        android:typeface="serif"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/darkBlue" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/task_details_text"
+        android:layout_alignLeft="@+id/TextView01"
+        android:text="@string/task"
+        android:typeface="serif"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/darkBlue" />
+
+    <Button
+        android:id="@+id/button_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/task_details_text"
+        android:layout_below="@+id/task_details_text"
+        android:layout_marginTop="19dp"
+        android:textColor="@color/darkBlue"
+        android:textSize="26sp"
+        android:typeface="serif"
+        android:onClick="SendMail"
+        android:background="@null"
+        android:text="@string/send" />
+
+</RelativeLayout>
